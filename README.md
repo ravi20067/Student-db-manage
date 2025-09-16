@@ -1,6 +1,6 @@
-# Project Name
+# College Db Mangement
 
-A brief description of your project. It aims to [state the purpose or goal of the project].
+
 
 ---
 
