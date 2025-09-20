@@ -3,6 +3,7 @@ package com.first.project.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.first.project.model.Student;
 import com.first.project.repo.StudentRepo;
+
+import jakarta.servlet.http.HttpServletRequest;
+
 
 @RestController
 public class StudentContyroller {
@@ -45,5 +49,13 @@ public class StudentContyroller {
         Student student = repo.findById(id).get();
         repo.delete(student);
     }
+    @GetMapping("/id")
+    public String getSessionid(HttpServletRequest request) {
+        return "Session id = "+request.getSession().getId();
+    }
 
+    @GetMapping("/csrftoken")
+    public CsrfToken getCsrfToken(HttpServletRequest request) {
+        return (CsrfToken) request.getAttribute("_csrf");
+    }
 }
