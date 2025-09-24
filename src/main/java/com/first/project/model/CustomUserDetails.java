@@ -6,17 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class CustomUserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id ;
     private String userName;
     private String password;
 
-    public User() {
+    public CustomUserDetails() {
     }
 
-    public User(String userName, int id, String password) {
+    public CustomUserDetails(String userName, int id, String password) {
         this.userName = userName;
         this.id = id;
         this.password = password;
@@ -45,4 +45,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+     
 }
